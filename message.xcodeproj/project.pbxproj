@@ -12,6 +12,10 @@
 		8EC105EA225BCD2B0081DABA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC105E8225BCD2B0081DABA /* Main.storyboard */; };
 		8EC105EC225BCD2C0081DABA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EC105EB225BCD2C0081DABA /* Assets.xcassets */; };
 		8EC105EF225BCD2C0081DABA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC105ED225BCD2C0081DABA /* LaunchScreen.storyboard */; };
+		8EC105FB225BD9B70081DABA /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC105FA225BD9B70081DABA /* NetworkProvider.swift */; };
+		8EC105FD225BDC180081DABA /* NetworkProvider+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC105FC225BDC180081DABA /* NetworkProvider+Rx.swift */; };
+		8EC105FF225BE7360081DABA /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC105FE225BE7360081DABA /* Scheduler.swift */; };
+		8EC10601225BF1CB0081DABA /* MessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC10600225BF1CB0081DABA /* MessageResponse.swift */; };
 		B1CB9703FC40348E8E963558 /* Pods_message.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1647DDF87D65A55EE026C832 /* Pods_message.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +28,10 @@
 		8EC105EB225BCD2C0081DABA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EC105EE225BCD2C0081DABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8EC105F0225BCD2C0081DABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EC105FA225BD9B70081DABA /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		8EC105FC225BDC180081DABA /* NetworkProvider+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkProvider+Rx.swift"; sourceTree = "<group>"; };
+		8EC105FE225BE7360081DABA /* Scheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
+		8EC10600225BF1CB0081DABA /* MessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageResponse.swift; sourceTree = "<group>"; };
 		92911CD41BBF7FEB7F37719C /* Pods-message.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-message.release.xcconfig"; path = "Target Support Files/Pods-message/Pods-message.release.xcconfig"; sourceTree = "<group>"; };
 		D0C3E6DAA80D80063DF17050 /* Pods-message.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-message.debug.xcconfig"; path = "Target Support Files/Pods-message/Pods-message.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,7 +62,6 @@
 				D0C3E6DAA80D80063DF17050 /* Pods-message.debug.xcconfig */,
 				92911CD41BBF7FEB7F37719C /* Pods-message.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -82,6 +89,7 @@
 				8EC105F6225BCD700081DABA /* Model */,
 				8EC105F7225BCD7A0081DABA /* View */,
 				8EC105F8225BCD830081DABA /* View Model */,
+				8EC105F9225BD9380081DABA /* Network */,
 				8EC105E4225BCD2B0081DABA /* AppDelegate.swift */,
 				8EC105EB225BCD2C0081DABA /* Assets.xcassets */,
 				8EC105ED225BCD2C0081DABA /* LaunchScreen.storyboard */,
@@ -93,6 +101,7 @@
 		8EC105F6225BCD700081DABA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8EC10600225BF1CB0081DABA /* MessageResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -113,6 +122,16 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
+		8EC105F9225BD9380081DABA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8EC105FE225BE7360081DABA /* Scheduler.swift */,
+				8EC105FA225BD9B70081DABA /* NetworkProvider.swift */,
+				8EC105FC225BDC180081DABA /* NetworkProvider+Rx.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -124,7 +143,7 @@
 				8EC105DD225BCD2B0081DABA /* Sources */,
 				8EC105DE225BCD2B0081DABA /* Frameworks */,
 				8EC105DF225BCD2B0081DABA /* Resources */,
-				1C991669EDCBE0CFF6143B7B /* [CP] Embed Pods Frameworks */,
+				576D29ED30C1A7FDF51F139D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -182,7 +201,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1C991669EDCBE0CFF6143B7B /* [CP] Embed Pods Frameworks */ = {
+		576D29ED30C1A7FDF51F139D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -197,6 +216,7 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRealmDataSources/RxRealmDataSources.framework",
@@ -212,6 +232,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealmDataSources.framework",
@@ -252,7 +273,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EC105E7225BCD2B0081DABA /* MessageListView.swift in Sources */,
+				8EC105FD225BDC180081DABA /* NetworkProvider+Rx.swift in Sources */,
 				8EC105E5225BCD2B0081DABA /* AppDelegate.swift in Sources */,
+				8EC105FF225BE7360081DABA /* Scheduler.swift in Sources */,
+				8EC10601225BF1CB0081DABA /* MessageResponse.swift in Sources */,
+				8EC105FB225BD9B70081DABA /* NetworkProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

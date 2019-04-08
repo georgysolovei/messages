@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import RxSwift
 
 class MessageListView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NetworkProvider.shared.rx.requestData()
+            .subscribe()
+        
     }
 }
