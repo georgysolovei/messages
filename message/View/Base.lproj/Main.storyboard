@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-1404" y="109"/>
         </scene>
-        <!--Message List View-->
+        <!--Message List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MessageListView" customModule="message" customModuleProvider="target" sceneMemberID="viewController">
@@ -148,7 +148,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="a9b-6V-Jo0"/>
+                    <navigationItem key="navigationItem" title="Message List" id="aQl-WR-86v"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

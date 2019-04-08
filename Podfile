@@ -6,5 +6,14 @@ target 'message' do
   use_frameworks!
 
   # Pods for message
+  pod 'RxCocoa'
+  pod 'RxSwift', '~> 4.1.2'
+  pod 'RxRealm'
+  pod 'RxRealmDataSources'
+  pod 'RxAlamofire', '~> 4.0'
+  pod 'RealmSwift', '~> 3.0'
+  pod 'Alamofire', '~> 4.5'
+  pod 'Kingfisher', '~> 4.0'
+  pod 'R.swift'
 
 end
