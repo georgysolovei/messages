@@ -13,7 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="yd5-8u-giT">
             <objects>
-                <navigationController id="yTe-ft-OZa" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" id="yTe-ft-OZa" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Rom-Jo-7Gx">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -29,7 +29,7 @@
         <!--Message List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MessageListView" customModule="message" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MessageListView" id="BYZ-38-t0r" customClass="MessageListView" customModule="message" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,8 +37,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vxk-8J-zhg">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="leftMessageCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="leftMessageCell" rowHeight="71" id="moB-VN-LVZ" customClass="MessageCell" customModule="Alley" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MessageCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" rowHeight="71" id="moB-VN-LVZ" customClass="MessageCell" customModule="message" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="71"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="moB-VN-LVZ" id="9JA-7N-ONi">
@@ -61,7 +62,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.89715051649999999" green="0.89775222539999999" blue="0.91793388129999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.9534549605714453" blue="1" alpha="0.18915052816901409" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="6Dz-xN-i53" secondAttribute="bottom" constant="23" id="KHd-gb-Mnh"/>
                                                         <constraint firstItem="6Dz-xN-i53" firstAttribute="top" secondItem="Xss-4Q-2GS" secondAttribute="top" constant="10" id="TFl-ww-F58"/>
@@ -87,7 +88,7 @@
                                             <outlet property="messageLabel" destination="6Dz-xN-i53" id="xdA-8a-WnZ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="rightMessageCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="rightMessageCell" rowHeight="71" id="bJr-QW-XDC" customClass="MessageCell" customModule="Alley" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="rightMessageCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="rightMessageCell" rowHeight="71" id="bJr-QW-XDC" customClass="MessageCell" customModule="message" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="99" width="375" height="71"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bJr-QW-XDC" id="4Qa-0K-wfk">
@@ -95,7 +96,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KsK-s3-ZFZ">
-                                                    <rect key="frame" x="226.5" y="5" width="83.5" height="61"/>
+                                                    <rect key="frame" x="281.5" y="5" width="83.5" height="61"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfL-Qx-f1U">
                                                             <rect key="frame" x="10" y="10" width="63.5" height="28"/>
@@ -143,12 +144,15 @@
                         <constraints>
                             <constraint firstItem="vxk-8J-zhg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7nJ-Qy-Z5O"/>
                             <constraint firstItem="vxk-8J-zhg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7ph-0e-xH9"/>
-                            <constraint firstItem="vxk-8J-zhg" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="W9J-mP-CA6"/>
+                            <constraint firstItem="vxk-8J-zhg" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="W9J-mP-CA6"/>
                             <constraint firstItem="vxk-8J-zhg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pS6-Md-8rr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Message List" id="aQl-WR-86v"/>
+                    <connections>
+                        <outlet property="tableView" destination="vxk-8J-zhg" id="Nbh-5T-63l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

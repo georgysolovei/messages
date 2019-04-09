@@ -19,19 +19,22 @@ extension Reactive where Base: NetworkProvider {
             .map { (response, data) -> T in
                 
 
-                let responseObject = try? JSONDecoder().decode(MessageResponse.self, from: data)
-                print(responseObject)
+                if let responseObject = try? JSONDecoder().decode(MessageResponse.self, from: data) {
+                    PersistencyManager.save(responseObject)
+                } else {
+                    
+                }
                 
                 guard let value = transform(data) else {
                     throw NSError(domain: "", code: response.statusCode, userInfo: nil)
                 }
                 return value
-            }a
+            }
             .subscribeOn(Scheduler.io)
             .observeOn(Scheduler.io)
     }
     
-    func requestData() -> Observable<Data> {
+    func requestData() -> Observable<Void> {
         return requestBase(transform: { $0 })
     }
 }

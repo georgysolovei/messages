@@ -15,6 +15,8 @@ final class NetworkProvider {
     var sessionManager: SessionManager
     public let requestTimeoutInterval: TimeInterval = 20
     
+    var token = ""
+
     private let url = "http://message-list.appspot.com/messages"
     
     private init() {
@@ -25,9 +27,10 @@ final class NetworkProvider {
     }
     
     func request() -> DataRequest {
-        return sessionManager.request(url)
+        let params: [String : Any] = ["pageToken": token,
+                                          "limit": 100]
+        return sessionManager.request(url, parameters: params)
     }
-    
 }
 
 

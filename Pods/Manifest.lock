@@ -1,9 +1,6 @@
 PODS:
   - Alamofire (4.8.1)
   - Kingfisher (4.10.1)
-  - R.swift (5.0.2):
-    - R.swift.Library (~> 5.0.0)
-  - R.swift.Library (5.0.0)
   - Realm (3.13.1):
     - Realm/Headers (= 3.13.1)
   - Realm/Headers (3.13.1)
@@ -31,7 +28,6 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.5)
   - Kingfisher (~> 4.0)
-  - R.swift
   - RealmSwift (~> 3.0)
   - RxAlamofire (~> 4.0)
   - RxCocoa
@@ -43,8 +39,6 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Kingfisher
-    - R.swift
-    - R.swift.Library
     - Realm
     - RealmSwift
     - RxAlamofire
@@ -57,8 +51,6 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
-  R.swift: 81455d81467763cbd3f4d79d938d05f4ac4c0228
-  R.swift.Library: 0bf390e729bc10bb2c9e4fb78bd043164a7be4ff
   Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
   RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
   RxAlamofire: 09624d0f2d48ed8b686e4eb4cf68e28cbd2df556
@@ -68,6 +60,6 @@ SPEC CHECKSUMS:
   RxRealmDataSources: 89b61c0d3edf7769da2a6bf4dcf317bc713394db
   RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
 
-PODFILE CHECKSUM: b6d809e179076ad50ed78fc03c9a83617f755994
+PODFILE CHECKSUM: 9f52c5bb34ed51616fa0edc6f27ce25288d5673a
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.6.1

@@ -11,7 +11,7 @@ import RxSwift
 class Scheduler {
     static var io: ImmediateSchedulerType = {
         let operationQueue = OperationQueue()
-        operationQueue.maxConcurrentOperationCount = 4
+        operationQueue.maxConcurrentOperationCount = 8
         operationQueue.qualityOfService = .userInitiated
         operationQueue.name = "IO"
         return OperationQueueScheduler(operationQueue: operationQueue)

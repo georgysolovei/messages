@@ -11,17 +11,17 @@ import Foundation
 struct MessageResponse: Decodable {
     let count: Int
     let pageToken: String
-    let messages: [Message]
+    let messages: [MessageDTO]
 }
 
-struct Message: Decodable {
+struct MessageDTO: Decodable {
     let content: String
     let updated: String
     let id: Int
-    let author: Author
+    let author: AuthorDTO
 }
 
-struct Author: Decodable {
+struct AuthorDTO: Decodable {
     let name: String
     let photoURL: String?
 }
