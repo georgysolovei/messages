@@ -14,13 +14,16 @@ extension NetworkProvider: ReactiveCompatible {}
 
 
 extension Reactive where Base: NetworkProvider {
-    private func requestBase<T>(transform: @escaping (Data) -> T?) -> Observable<T> {
+    private func requestBase(transform: @escaping (Data) -> MessageResponse?) -> Observable<MessageResponse> {
         return base.request().rx.responseData()
-            .map { (response, data) -> T in
+            .map { (response, data) -> MessageResponse in
                 
 
                 if let responseObject = try? JSONDecoder().decode(MessageResponse.self, from: data) {
-                    PersistencyManager.save(responseObject)
+//                    PersistencyManager.save(responseObject)
+//                    print(responseObject.messages.last?.id)
+                    NetworkProvider.shared.token = responseObject.pageToken
+                    return responseObject
                 } else {
                     
                 }
@@ -34,7 +37,13 @@ extension Reactive where Base: NetworkProvider {
             .observeOn(Scheduler.io)
     }
     
-    func requestData() -> Observable<Void> {
-        return requestBase(transform: { $0 })
+    func requestData() -> Observable<MessageResponse?> {
+        return base.request().rx.responseData()
+            .map { (response, data) -> MessageResponse? in
+                if let messageResponse = try? JSONDecoder().decode(MessageResponse.self, from: data) {
+                    NetworkProvider.shared.token = messageResponse.pageToken
+                    return messageResponse
+                } else { return nil }
+        }
     }
 }

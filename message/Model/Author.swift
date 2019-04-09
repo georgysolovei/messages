@@ -17,6 +17,6 @@ final class Author: RootObject {
 
         id       = uniqueIntNumber()
         name     = authorDTO.name
-        photoURL = authorDTO.photoURL
+        photoURL = authorDTO.photoUrl
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxDataSources
 
 struct MessageResponse: Decodable {
     let count: Int
@@ -14,7 +15,15 @@ struct MessageResponse: Decodable {
     let messages: [MessageDTO]
 }
 
-struct MessageDTO: Decodable {
+struct MessageDTO: Decodable, IdentifiableType, Equatable {
+    static func == (lhs: MessageDTO, rhs: MessageDTO) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    typealias Identity = String
+    var identity: String {
+        return updated
+    }
     let content: String
     let updated: String
     let id: Int
@@ -23,5 +32,5 @@ struct MessageDTO: Decodable {
 
 struct AuthorDTO: Decodable {
     let name: String
-    let photoURL: String?
+    let photoUrl: String?
 }

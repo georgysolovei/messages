@@ -8,6 +8,9 @@
 
 import Foundation
 
+let serverDatePattern  = "yyyy-MM-dd'T'HH:mm:ssxxxxx"
+let longLiteralPattern = "h:mm a, MMMM d, yyyy"
+
 func uniqueIntNumber() -> Int {
     let date = Date()
     let uniqueNumber = date.timeIntervalSince1970 * 1_000

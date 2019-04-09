@@ -1,6 +1,11 @@
 PODS:
   - Alamofire (4.8.1)
+  - Differentiator (3.1.0)
   - Kingfisher (4.10.1)
+  - MarqueeLabel/Swift (3.2.1)
+  - NotificationBannerSwift (2.0.1):
+    - MarqueeLabel/Swift (~> 3.2.0)
+    - SnapKit (~> 4.2.0)
   - Realm (3.13.1):
     - Realm/Headers (= 3.13.1)
   - Realm/Headers (3.13.1)
@@ -14,6 +19,10 @@ PODS:
   - RxAtomic (4.4.1)
   - RxCocoa (4.4.1):
     - RxSwift (~> 4.0)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - RxRealm (0.7.6):
     - RealmSwift (~> 3.0)
     - RxSwift (~> 4.0)
@@ -24,13 +33,16 @@ PODS:
     - RxSwift (~> 4.0)
   - RxSwift (4.4.1):
     - RxAtomic (~> 4.4)
+  - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
   - Kingfisher (~> 4.0)
+  - NotificationBannerSwift
   - RealmSwift (~> 3.0)
   - RxAlamofire (~> 4.0)
   - RxCocoa
+  - RxDataSources
   - RxRealm
   - RxRealmDataSources
   - RxSwift
@@ -38,28 +50,38 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Differentiator
     - Kingfisher
+    - MarqueeLabel
+    - NotificationBannerSwift
     - Realm
     - RealmSwift
     - RxAlamofire
     - RxAtomic
     - RxCocoa
+    - RxDataSources
     - RxRealm
     - RxRealmDataSources
     - RxSwift
+    - SnapKit
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  MarqueeLabel: 2daf039bf916937c8a4c9adfc13577cc5e51b4ce
+  NotificationBannerSwift: 007774aa590cc9680647b92b2f217bef5c00c32c
   Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
   RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
   RxAlamofire: 09624d0f2d48ed8b686e4eb4cf68e28cbd2df556
   RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
   RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxRealm: 5379eddd74f8d617ca7681d1f8d144af25b432b0
   RxRealmDataSources: 89b61c0d3edf7769da2a6bf4dcf317bc713394db
   RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 9f52c5bb34ed51616fa0edc6f27ce25288d5673a
+PODFILE CHECKSUM: d6c9a5dedeaf778214ba921a8445eda6583f9ba5
 
 COCOAPODS: 1.6.1

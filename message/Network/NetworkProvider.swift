@@ -18,6 +18,7 @@ final class NetworkProvider {
     var token = ""
 
     private let url = "http://message-list.appspot.com/messages"
+    let baseUrl = "http://message-list.appspot.com/"
     
     private init() {
         

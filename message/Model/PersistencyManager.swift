@@ -10,9 +10,9 @@ import RealmSwift
 
 final class PersistencyManager {
     class func save(_ messageResponse: MessageResponse) {        
-        NetworkProvider.shared.token = messageResponse.pageToken
+//        NetworkProvider.shared.token = messageResponse.pageToken
         
-        print(messageResponse.messages.last?.id)
+//        print(messageResponse.messages.last?.id)
        
         let realm = try! Realm()
 

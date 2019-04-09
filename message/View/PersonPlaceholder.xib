@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PersonView" customModule="message" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="ab1-UQ-O7g"/>
+                <outlet property="personImageView" destination="W8I-90-abi" id="Jjr-FX-qAG"/>
+                <outlet property="placeholderImageView" destination="Z49-dh-rFe" id="2uV-Yb-sjD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="103" height="110"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person-placeholder-small" translatesAutoresizingMaskIntoConstraints="NO" id="Z49-dh-rFe" userLabel="Placeholder Image View">
+                    <rect key="frame" x="10.5" y="15" width="82" height="94.5"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W8I-90-abi">
+                    <rect key="frame" x="0.0" y="0.0" width="103" height="110"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="W8I-90-abi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="1Z9-oN-Gtr"/>
+                <constraint firstItem="Z49-dh-rFe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="7" id="3RJ-AF-9Qg"/>
+                <constraint firstItem="Z49-dh-rFe" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.85" constant="1" id="PaA-XK-U6r"/>
+                <constraint firstAttribute="trailing" secondItem="W8I-90-abi" secondAttribute="trailing" id="UxR-e0-MPi"/>
+                <constraint firstItem="W8I-90-abi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="d0K-yh-tvN"/>
+                <constraint firstItem="Z49-dh-rFe" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="hzt-M7-KBi"/>
+                <constraint firstItem="Z49-dh-rFe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="mjv-xZ-qqs"/>
+                <constraint firstAttribute="bottom" secondItem="W8I-90-abi" secondAttribute="bottom" id="o6S-PT-3Bu"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-112.5" y="339"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="person-placeholder-small" width="42.5" height="42.5"/>
+    </resources>
+</document>

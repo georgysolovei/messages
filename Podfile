@@ -15,5 +15,7 @@ target 'message' do
   pod 'RealmSwift', '~> 3.0'
   pod 'Alamofire', '~> 4.5'
   pod 'Kingfisher', '~> 4.0'
+  pod 'RxDataSources'
+  pod 'NotificationBannerSwift'
 
 end
