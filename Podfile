@@ -9,10 +9,7 @@ target 'message' do
   # Pods for message
   pod 'RxCocoa'
   pod 'RxSwift'
-  pod 'RxRealm'
-  pod 'RxRealmDataSources'
   pod 'RxAlamofire', '~> 4.0'
-  pod 'RealmSwift', '~> 3.0'
   pod 'Alamofire', '~> 4.5'
   pod 'Kingfisher', '~> 4.0'
   pod 'RxDataSources'

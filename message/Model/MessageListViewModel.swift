@@ -7,18 +7,15 @@
 //
 
 import RxSwift
-import RealmSwift
-import RxRealm
 import RxDataSources
 
 protocol MessageListType: class {
-    var viewWillAppear: AnyObserver<Void>                    { get }
-    var cellForRow:     PublishSubject<Int>                  { get }
-    var cellViewModel:  Observable<MessageCellViewModelType> { get }
-    var cellViewModelArray: Observable<[SectionModel<String, MessageDTO>]>         { get }
-    var showBanner: Observable<Bool> { get }
-    var reload: AnyObserver<Void> { get }
-    var loadMore: AnyObserver<Void> { get }
+    var viewWillAppear:     AnyObserver<Void>                              { get }
+    var cellForRow:         PublishSubject<Int>                            { get }
+    var cellViewModelArray: Observable<[SectionModel<String, MessageDTO>]> { get }
+    var showBanner:         Observable<Bool>                               { get }
+    var reload:             AnyObserver<Void>                              { get }
+    var loadMore:           AnyObserver<Void>                              { get }
 }
 
 final class MessageListViewModel: MessageListType {
@@ -28,17 +25,15 @@ final class MessageListViewModel: MessageListType {
     let cellForRow = PublishSubject<Int>()
     let reload: AnyObserver<Void>
     let loadMore: AnyObserver<Void>
-
-    private var messageArray = [MessageDTO]()
     
     // Output
-    let cellViewModel: Observable<MessageCellViewModelType>
     let cellViewModelArray: Observable<[SectionModel<String, MessageDTO>]>
     let showBanner: Observable<Bool>
 
+    private var messageArray = [MessageDTO]()
+
     private let viewWillAppearSubject = PublishSubject<Void>()
     private let disposeBag = DisposeBag()
-    private let cellViewModelSubject = PublishSubject<MessageCellViewModelType>()
     private let cellViewModelArraySubject = PublishSubject<[SectionModel<String, MessageDTO>]>()
     private let showBannerSubject = PublishSubject<Bool>()
     private let reloadSubject = PublishSubject<Void>()
@@ -53,7 +48,6 @@ final class MessageListViewModel: MessageListType {
     init() {
 
         viewWillAppear = viewWillAppearSubject.asObserver()
-        cellViewModel  = cellViewModelSubject.asObservable()
         showBanner     = showBannerSubject.asObservable()
         reload         = reloadSubject.asObserver()
         loadMore       = loadMoreSubject.asObserver()
@@ -119,9 +113,10 @@ final class MessageListViewModel: MessageListType {
                 }
                 }, onError: { [weak self] error in
                     guard let `self` = self else { return }
-                    if (Date().timeIntervalSince1970 - self.bannerShowDate.timeIntervalSince1970) > TimeInterval(5) {
+                    let currentDate = Date()
+                    if (currentDate.timeIntervalSince1970 - self.bannerShowDate.timeIntervalSince1970) > TimeInterval(5) {
                         self.showBannerSubject.onNext(true)
-                        self.bannerShowDate = Date()
+                        self.bannerShowDate = currentDate
                     }
             })
             .disposed(by: disposeBag)

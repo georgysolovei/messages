@@ -36,7 +36,6 @@ class MessageCell: UITableViewCell {
         
         maxBubbleWidth.constant = UIScreen.main.bounds.width * 0.75
         labelSuperview.layer.cornerRadius = labelSuperview.frame.width / 4
-        
     }
 
 }

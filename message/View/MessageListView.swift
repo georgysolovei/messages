@@ -13,24 +13,27 @@ import RxDataSources
 import NotificationBannerSwift
 
 class MessageListView: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var bubble: UIImageView!
-    @IBOutlet weak var reloadButton: UIBarButtonItem!
+    @IBOutlet weak var tableView:      UITableView!
+    @IBOutlet weak var bubble:         UIImageView!
+    @IBOutlet weak var reloadButton:   UIBarButtonItem!
     @IBOutlet weak var loadMoreButton: UIButton!
     
     var viewModel: MessageListType!
     
     private let disposeBag = DisposeBag()
     private var banner: NotificationBanner!
-
+ 
     private struct Const {
-        static let cellId = "MessageCell"
+        static let cellId   = "MessageCell"
+        static let error    = "Error"
+        static let tryAgain = "Try again later"
+        static let celllId  = "MessageCell"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBindings()
-        banner = NotificationBanner(title: "Error", subtitle: "Try again later", style: .danger)
+        banner = NotificationBanner(title: Const.error, subtitle: Const.tryAgain, style: .danger)
         banner.applyStyling(titleTextAlign: .center, subtitleTextAlign: .center)
     }
     
@@ -39,21 +42,14 @@ class MessageListView: UIViewController {
             
             self.viewModel.cellForRow.onNext(indexPath.row)
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Const.cellId, for: indexPath) as! MessageCell
             cell.message = item
             return cell
         })
         
-        dataSource.canEditRowAtIndexPath = { dataSource, indexPath in
-            return true
-        }
-        dataSource.canMoveRowAtIndexPath = { dataSource, indexPath in
-            return true
-        }
         viewModel.cellViewModelArray
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
-
         
         rx.viewWillAppear
             .asDriver(onErrorJustReturn: ())
@@ -68,8 +64,8 @@ class MessageListView: UIViewController {
         reloadButton.rx.tap
             .do(onNext: { [unowned self] in
                 self.loadMoreButton.isHidden = true
+                // stop scrolling
                 self.tableView.setContentOffset(self.tableView.contentOffset, animated: false)
-
             })
             .asObservable()
             .bind(to: viewModel.reload)
@@ -112,19 +108,5 @@ class MessageListView: UIViewController {
             .drive(viewModel.loadMore)
             .disposed(by: disposeBag)
 
-    }
-}
-
-struct Section {
-    var header: String
-    var items: [Item]
-}
-
-extension Section: SectionModelType {
-    typealias Item = MessageDTO
-    
-    init(original: Section, items: [MessageDTO]) {
-        self = original
-        self.items = items
     }
 }
