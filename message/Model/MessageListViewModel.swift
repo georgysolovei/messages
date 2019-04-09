@@ -14,7 +14,8 @@ protocol MessageListType: class {
     var viewWillAppear: AnyObserver<Void>                                                  { get }
     var cellForRow:     PublishSubject<IndexPath>                                          { get }
     var cellViewModel:  Observable<MessageCellViewModelType>                               { get }
-    var changeset:      Observable<(AnyRealmCollection<Message>, RxRealm.RealmChangeset?)> { get }
+//    var changeset:      Observable<(AnyRealmCollection<Message>, RxRealm.RealmChangeset?)> { get }
+    var messageResults: Results<Message> { get }
 }
 
 final class MessageListViewModel: MessageListType {
@@ -23,13 +24,13 @@ final class MessageListViewModel: MessageListType {
     let cellForRow = PublishSubject<IndexPath>()
 
     // Output
-    let changeset: Observable<(AnyRealmCollection<Message>, RxRealm.RealmChangeset?)>
+//    let changeset: Observable<(AnyRealmCollection<Message>, RxRealm.RealmChangeset?)>
     let cellViewModel: Observable<MessageCellViewModelType>
 
     private let viewWillAppearSubject = PublishSubject<Void>()
     private let disposeBag = DisposeBag()
     private let cellViewModelSubject = PublishSubject<MessageCellViewModelType>()
-    private let messageResults: Results<Message>
+    let messageResults: Results<Message>
 
     private struct Const {
         static let leftCountTillEndFirst = 80
@@ -38,7 +39,7 @@ final class MessageListViewModel: MessageListType {
     
     init() {
         messageResults = PersistencyManager.messages()
-        changeset = Observable.changeset(from: messageResults)
+//        changeset = Observable.changeset(from: messageResults)
 
         viewWillAppear = viewWillAppearSubject.asObserver()
         cellViewModel  = cellViewModelSubject.asObservable()
@@ -46,7 +47,7 @@ final class MessageListViewModel: MessageListType {
         viewWillAppearSubject.asObservable()
             .take(1)
             .subscribe(onNext: { [unowned self] in
-                PersistencyManager.clean()                
+//                PersistencyManager.clean()
                 self.fetch()
             })
             .disposed(by: disposeBag)

@@ -55,3 +55,5 @@ final class PersistencyManager {
         return realm.objects(Message.self)
     }
 }
+
+
